@@ -1,0 +1,49 @@
+ROS Presentation Notes
+
+Introduction
+	ROS stands for Robot Operating System
+	Middleware
+		messaging inter and extra processor
+		package infrastructure
+	Implemented as a set of C++ programs and configuration files and many reused open source libraries
+	Been around for 9 years
+	Driven by many different proprietary protocols for sensors and motor controllers
+	Primarily C++ with support with python and lisp
+	Typical hardware platforms is intel x64 with NVidea GPU
+		There is some ARM support
+	Typical OS is Linux specifically Ubuntu 14.04
+		libraries are all open source and cross platform, but package management across OS's aren't well supported
+
+Demos
+	Pub Sub no code
+		Window 0
+			roscore
+		Window 1
+			http://wiki.ros.org/rostopic
+			rostopic pub /topic_name std_msgs/String hello -r 1
+		Window 2
+			rostopic list
+			rostopic echo
+		Window 3
+			rqt_graph
+			rosbag record -a
+			ctrl-c Window 1
+			rosbag play -l
+	Plotting
+		Window 0
+			roscore
+		Window 1
+			rosrun sine_pub sine_pub
+		Window 2
+			rostopic echo
+			rqt_plot
+	Web Interaction
+		from http://iguanatronics.com/simple-tutorial-on-rosbridge-and-roslibjs/
+		Window 0
+			rosrun turtlesim turtlesim_node
+		Window 1
+			roslaunch rosbridge_server rosbridge_websocket.launch
+		Window 2
+			firefox turtlesim_web.html
+	Gazebo + RViz
+		https://www.youtube.com/watch?v=W8z_rJyEVZg
